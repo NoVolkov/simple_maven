@@ -11,6 +11,16 @@ pipeline {
                 bat 'buildScript.bat'
             }
         }
+		stage('test'){
+			steps{
+				bat 'testScript.bat'
+			}
+		}
+		stage('packaging'){
+			steps{
+				bat 'packagingScript.bat'
+			}
+		}
 		stage('start'){
             steps {
                 bat 'runScript.bat'
