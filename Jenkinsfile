@@ -1,9 +1,14 @@
 pipeline {
     agent any
     stages{
-        stage('Build'){
+        stage('build'){
             steps {
-                sh 'buildScript.bat'
+                bat 'buildScript.bat'
+            }
+        }
+		stage('start'){
+            steps {
+                bat 'runScript.bat'
             }
         }
     }
