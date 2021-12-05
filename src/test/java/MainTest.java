@@ -6,11 +6,12 @@ public class MainTest {
     public void checkConstructors(){
         try {
             new Main();
+			System.out.println("Тест: Main без аргументов");
         } catch(Exception e) {
              fail(e.toString());
         }
         try {
-            new Main(4,5);
+            System.out.println(new Main(4,5).getSum());
         } catch(Exception e) {
             fail(e.toString());
         }
