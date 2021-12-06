@@ -28,7 +28,7 @@ pipeline {
         }
     }
 	post{
-		success{
+		always{
 			emailext body: 'Test Message. :)',
 				subject: 'Test Subject',
 				to: 'volkov.v16@yandex.ru'
