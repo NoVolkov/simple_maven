@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	environment{
-		v_pack='false'
+		V_PACK="false"
 	}
     stages{
 		stage('git'){
@@ -26,14 +26,14 @@ pipeline {
 			post{
 				success{
 					echo 'Успех упаковки'
-					v_pack='true'
+					V_PACK="true"
 				}
 			}
 		}
 		stage('deploy'){
 			when{
 				allOf{
-					environment name:'v_pack', value: 'true'
+					environment name:'V_PACK', value: 'true'
 				}
 			}
 			steps{
