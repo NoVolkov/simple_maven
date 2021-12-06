@@ -1,5 +1,8 @@
 pipeline {
     agent any
+	environment{
+		pack_='false'
+	}
     stages{
 		stage('git'){
 			steps{
@@ -20,6 +23,19 @@ pipeline {
 			steps{
 				bat 'packagingScript.bat'
 			}
+			seccess{
+				pack_='true'
+			}
+		}
+		stage('deploy'){
+			when{
+				allOf{
+					environment name:'pack_', value: 'true'
+				}
+			}
+			steps{
+				bat 'deployScript.bat'
+			}
 		}
 		stage('start'){
             steps {
@@ -27,12 +43,12 @@ pipeline {
             }
         }
     }
-	post{
+	/*post{
 		always{
 			emailext body: 'Test Message. :)',
 				subject: 'Test Subject',
 				to: 'volkov.v16@yandex.ru'
 		}
-	}
+	}*/
     
 }
