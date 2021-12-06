@@ -23,8 +23,10 @@ pipeline {
 			steps{
 				bat 'packagingScript.bat'
 			}
-			seccess{
-				pack_='true'
+			post{
+				success{
+					pack_='true'
+				}
 			}
 		}
 		stage('deploy'){
