@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	environment{
-		V_PACK="false"
+		v_pack='false'
 	}
     stages{
 		stage('git'){
@@ -23,17 +23,15 @@ pipeline {
 			steps{
 				bat 'packagingScript.bat'
 			}
-			post{
-				success{
-					echo 'Успех упаковки'
-					V_PACK="true"
-				}
+			success{
+				echo 'Успех упаковки'
+				v_pack='true'
 			}
 		}
 		stage('deploy'){
 			when{
 				allOf{
-					environment name:'V_PACK', value: 'true'
+					environment name:'v_pack', value: 'true'
 				}
 			}
 			steps{
