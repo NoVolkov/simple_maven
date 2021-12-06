@@ -1,9 +1,9 @@
 pipeline {
-    agent any
-	environment{
-		v_pack='false'
-	}
+    agent any	
     stages{
+		environment{
+			v_pack='false'
+		}
 		stage('git'){
 			steps{
 				git credentialsId: 'simple_maven_id', url: 'https://github.com/NoVolkov/simple_maven.git'
@@ -23,8 +23,8 @@ pipeline {
 			steps{
 				bat 'packagingScript.bat'
 			}
-			success{
-				steps{
+			post{
+				success{
 					echo 'Успех упаковки'
 					v_pack='true'
 				}				
