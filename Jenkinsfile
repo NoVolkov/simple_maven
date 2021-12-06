@@ -24,8 +24,10 @@ pipeline {
 				bat 'packagingScript.bat'
 			}
 			success{
-				echo 'Успех упаковки'
-				v_pack='true'
+				steps{
+					echo 'Успех упаковки'
+					v_pack='true'
+				}				
 			}
 		}
 		stage('deploy'){
