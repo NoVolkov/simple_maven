@@ -1,6 +1,6 @@
 pipeline {
     agent any	
-	triggers { pollSCM('* * * * *') }
+	//triggers { pollSCM('* * * * *') }
     stages{
 		stage('git'){
 			steps{
@@ -9,26 +9,31 @@ pipeline {
 		}
         stage('build'){
             steps {
+				echo 'Идёт сборка'
                 bat 'buildScript.bat'
             }
         }
 		stage('test'){
 			steps{
+				echo 'Идёт тестирование'
 				bat 'testScript.bat'
 			}
 		}
 		stage('packaging'){
 			steps{
+				echo 'Идёт упаковка'
 				bat 'packagingScript.bat'
 			}
 		}
 		stage('deploy'){
 			steps{
+				echo 'Идёт развёртка'
 				bat 'deployScript.bat'
 			}
 		}
 		stage('start'){
             steps {
+				echo 'Идёт запуск'
                 bat 'runScript.bat'
             }
         }
