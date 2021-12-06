@@ -31,7 +31,7 @@ pipeline {
 		success{
 			emailext body: 'Test Message. :)',
 				subject: 'Test Subject',
-				to: 'vdm.volkov249@mail.ru'
+				to: 'volkov.v16@yandex.ru'
 		}
 	}
     
