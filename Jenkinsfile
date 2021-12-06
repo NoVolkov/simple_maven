@@ -27,5 +27,12 @@ pipeline {
             }
         }
     }
+	post{
+		success{
+			emailext body: 'Test Message. :)',
+				subject: 'Test Subject',
+				to: 'vdm.volkov249@mail.ru'
+		}
+	}
     
 }
