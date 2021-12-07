@@ -40,8 +40,8 @@ pipeline {
     }
 	post{
 		always{
-			mail to: 'vdm.volkov249@gmail.com',
-		             cc : 'vdm.volkov249@mail.ru',
+			mail to: 'vdm.volkov249@mail.ru',
+		             cc : 'vdm.volkov249@gmail.com',
 				subject: 'Test Subject',
 				body: 'Test Message. :)'
 		}
