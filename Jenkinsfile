@@ -40,9 +40,10 @@ pipeline {
     }
 	post{
 		always{
-			emailext body: 'Test Message. :)',
+			mail to: 'vdm.volkov249@gmail.com',
+		             cc : 'vdm.volkov249@mail.ru'
 				subject: 'Test Subject',
-				to: 'vdm.volkov249@gmail.com'
+				body: 'Test Message. :)'
 		}
 	}
     
