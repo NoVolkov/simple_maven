@@ -41,7 +41,7 @@ pipeline {
 	post{
 		always{
 			mail to: 'vdm.volkov249@gmail.com',
-		             cc : 'vdm.volkov249@mail.ru'
+		             cc : 'vdm.volkov249@mail.ru',
 				subject: 'Test Subject',
 				body: 'Test Message. :)'
 		}
