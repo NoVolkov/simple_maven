@@ -39,11 +39,11 @@ pipeline {
         }
     }
 	post{
-		always{
-			mail to: 'vdm.volkov249@mail.ru',//кому
-		             cc : 'vdm.volkov249@gmail.com',//от кого
-				subject: 'Отчёт Jenkins. Build ${currentBuild.fullDisplayName}.',//название письма (Оглавление)
-				body: 'Hi. Build`s status at ${env.BUILD_URL}.'//текст письма (Сообщение)
+		always{//Двойные кавычки нужны
+			mail to: "vdm.volkov249@mail.ru",//кому
+		             cc : "vdm.volkov249@gmail.com",//от кого
+				subject: "Отчёт Jenkins. Build ${currentBuild.fullDisplayName}.",//название письма (Оглавление)
+				body: "Hi. Build`s status at ${env.BUILD_URL}."//текст письма (Сообщение)
 		}
 	}
     
