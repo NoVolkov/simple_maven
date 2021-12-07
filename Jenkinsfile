@@ -42,7 +42,7 @@ pipeline {
 		always{
 			emailext body: 'Test Message. :)',
 				subject: 'Test Subject',
-				to: 'volkov.v16@yandex.ru'
+				to: 'vdm.volkov249@gmail.com'
 		}
 	}
     
